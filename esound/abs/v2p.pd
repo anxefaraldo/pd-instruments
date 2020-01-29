@@ -1,0 +1,356 @@
+#N canvas 91 404 1793 1014 10;
+#X obj 20 20 cnv 15 750 600 empty empty empty 20 12 0 14 -262130 -66577
+0;
+#X obj 67 71 cnv 15 250 125 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 318 71 cnv 15 250 125 empty empty empty 20 12 0 14 -128992 -66577
+0;
+#X text 558 580 +25 Km/h;
+#X text 55 582 -25 Km/h;
+#X text 313 580 0 Km/h;
+#X text 27 564 0.25x;
+#X text 46 316 1x;
+#X text 47 192 2x;
+#X text 47 66 4x;
+#X text 33 441 0.5x;
+#X msg 1571 381 vis 1;
+#X obj 1571 358 r vis-v2p-\$1;
+#X obj 1571 403 s pd-v2p-\$1;
+#X obj 1142 111 f \$1;
+#X obj 497 28 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+RESET 20 8 0 10 -262144 -1 -1;
+#X msg 1142 132 \; vel2pitch-\$1 const 0 \;;
+#X obj 227 28 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+SAVE-AS 20 8 0 10 -262144 -1 -1;
+#X obj 307 28 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+SAVE 20 8 0 10 -262144 -1 -1;
+#X obj 367 28 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+LOAD 20 8 0 10 -262144 -1 -1;
+#X obj 1388 65 symbol;
+#X obj 1388 45 savepanel;
+#X obj 1388 149 pack s \$1;
+#X obj 1321 105 symbol;
+#X obj 1321 187 pack s \$1;
+#X obj 1321 85 openpanel;
+#X obj 427 28 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+RELOAD 20 8 0 10 -262144 -1 -1;
+#X symbolatom 66 28 25 0 0 0 - - -;
+#X msg 1388 171 \; vel2pitch-\$2 write \$1;
+#X msg 1321 209 \; vel2pitch-\$2 read \$1;
+#X obj 1652 143 list fromsymbol;
+#X msg 1547 140 47;
+#X obj 1547 119 t b s, f 18;
+#X obj 1562 263 list split, f 20;
+#X obj 1679 220 f;
+#X obj 1652 190 t b b;
+#X obj 1562 242 list;
+#X obj 1620 284 list tosymbol;
+#X obj 1679 241 + 1;
+#X obj 1547 168 list-find;
+#X msg 963 79 reverse;
+#X msg 983 162 smooth;
+#X msg 971 107 invert;
+#X msg 977 135 sort;
+#X msg 990 187 clip -2 2;
+#X obj 583 630 mirror-curves vel2pitch-\$1;
+#X obj 583 504 vradio 15 1 0 4 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+empty 0 -8 0 10 -262144 -1 -1 1;
+#X text 601 504 COPY REAR INTO FORWARD;
+#X text 601 519 MIRROR REAR INTO FORWARD;
+#X text 601 535 COPY FORWARD INTO REAR;
+#X text 601 550 MIROR FORWARD INTO REAR;
+#X obj 587 121 bng 15 250 50 0 empty empty SMOOTH 20 8 0 10 -262144
+-1 -1;
+#X obj 587 61 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+REVERSE 20 8 0 10 -262144 -1 -1;
+#X obj 587 81 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+INVERT 20 8 0 10 -262144 -1 -1;
+#X obj 587 101 bng 15 250 50 0 empty \$0jhdfgstrywtgkusfy7vt9srrt SORT
+20 8 0 10 -262144 -1 -1;
+#X obj 587 141 bng 15 250 50 0 empty \$0jhdfgstrywtgkusfy7vt9srrt CLIP
+20 8 0 10 -262144 -1 -1;
+#X obj 963 211 s vel2pitch-tabletool-\$1;
+#X obj 67 197 cnv 15 250 125 empty empty empty 20 12 0 14 -191407 -66577
+0;
+#X obj 318 197 cnv 15 250 125 empty empty empty 20 12 0 14 -162280
+-66577 0;
+#X obj 67 323 cnv 15 250 125 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 318 323 cnv 15 250 125 empty empty empty 20 12 0 14 -191407
+-66577 0;
+#X obj 67 449 cnv 15 250 125 empty empty empty 20 12 0 14 -128992 -66577
+0;
+#X obj 318 449 cnv 15 250 125 empty empty empty 20 12 0 14 -228856
+-66577 0;
+#X msg 955 342 round \$1 \, clip -2 2;
+#X obj 694 70 vradio 15 1 0 6 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+ROUND 0 -8 0 10 -262144 -1 -1 1;
+#X text 714 115 0.25;
+#X obj 952 274 sel 0 1 2 3 4 5, f 35;
+#X obj 587 196 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
++ 4 8 0 12 -262144 -1 -1;
+#X obj 607 196 vradio 15 1 0 4 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+empty 0 -8 0 10 -262144 -1 -1 3;
+#X msg 629 809 -1;
+#X msg 663 875 offset \$1;
+#X msg 663 808 1;
+#X obj 693 782 sel 0 1 2 3, f 26;
+#X obj 587 216 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+- 4 8 0 12 -262144 -1 -1;
+#N canvas 0 23 450 278 (subpatch) 0;
+#X array vel2pitch-\$1 500 float 0;
+#X coords 0 2 499 -2 503 504 1 0 0;
+#X restore 66 71 graph;
+#X obj 602 296 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
++ 4 8 0 12 -262144 -1 -1;
+#X obj 622 296 vradio 15 1 0 4 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+empty 0 -8 0 10 -262144 -1 -1 2;
+#X msg 300 728 -1;
+#X msg 334 727 1;
+#X obj 364 701 sel 0 1 2 3, f 26;
+#X obj 602 316 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+- 4 8 0 12 -262144 -1 -1;
+#X text 641 326 5;
+#X text 586 179 V. OFFSET;
+#X text 641 342 25;
+#X text 641 311 1;
+#X text 641 295 0.1;
+#X obj 502 958 s vel2pitch-tabletool-\$1;
+#X obj 1570 434 loadbang;
+#X msg 1570 455 symbol load-or-store-curves!;
+#X msg 343 880 shift0 \$1;
+#X obj 705 196 nbx 5 14 0.25 4 1 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+MAX -25 7 0 10 -262144 -1 -1 4 256;
+#X obj 705 216 nbx 5 14 0.25 4 1 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+MIN -25 7 0 10 -262144 -1 -1 0.25 256;
+#X obj 829 302 t b f f;
+#X obj 799 319 f;
+#X obj 799 341 t f f;
+#X obj 818 384 min;
+#X obj 856 387 max;
+#X obj 829 279 log 2;
+#X obj 786 288 log 2;
+#X obj 835 410 pack;
+#X msg 835 434 normalize \$1 \$2 \, clip -2 2;
+#X obj 682 325 vradio 15 1 0 2 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+empty 0 -8 0 10 -262144 -1 -1 0;
+#X obj 336 823 route 0 1;
+#X obj 336 801 list prepend 0;
+#X msg 415 871 shift \$1;
+#X obj 1621 305 s current-v2p-\$1;
+#X obj 66 6 r current-v2p-\$1, f 18;
+#X obj 1570 477 s current-v2p-\$1;
+#X obj 699 430 nbx 5 14 0.25 4 1 0 \$0-asdfadsfadfa \$0jhdfgstrywtgkusfy7vt9srrt
+END 0 -7 0 10 -262144 -1 -1 4 256;
+#X obj 639 430 nbx 5 14 0.25 4 1 0 \$0-asdfadsfadfa \$0jhdfgstrywtgkusfy7vt9srrt
+START 0 -7 0 10 -262144 -1 -1 0.25 256;
+#X obj 700 450 nbx 5 14 -25 25 0 0 \$0-asdfadsfadfa \$0jhdfgstrywtgkusfy7vt9srrt
+empty -25 7 0 10 -262144 -1 -1 25 256;
+#X obj 639 450 nbx 5 14 -25 25 0 0 \$0-asdfadsfadfa \$0jhdfgstrywtgkusfy7vt9srrt
+RANGE(Km) -60 7 0 10 -262144 -1 -1 -25 256;
+#X obj 649 400 nbx 4 14 -100 100 0 0 \$0-asdfadsfadfa \$0jhdfgstrywtgkusfy7vt9srrt
+exp -25 7 0 10 -262144 -1 -1 0 256;
+#X text 713 179 SCALE;
+#X obj 846 667 make-lines vel2pitch-\$1, f 39;
+#X msg 367 728 1;
+#X msg 402 726 10;
+#X msg 442 726 50;
+#X msg 482 726 250;
+#X text 602 278 HORIZONTAL SHIFT (Km.);
+#X text 699 340 circular;
+#X text 699 324 zeroes;
+#X obj 334 771 * 1;
+#X obj 1041 598 log 2;
+#X obj 983 598 log 2;
+#X obj 897 625 * 10;
+#X obj 897 603 + 25;
+#X obj 941 622 * 10;
+#X obj 941 600 + 25;
+#X obj 700 470 bng 15 250 50 0 \$0-asdfasdfadf \$0jhdfgstrywtgkusfy7vt9srrt
+MAKE 20 8 0 10 -262144 -1 -1;
+#X text 696 400 (+- 100);
+#X obj 124 755 loadbang;
+#X msg 234 646 4;
+#X msg 239 715 -25;
+#X msg 239 747 25;
+#X msg 237 671 0.25;
+#X obj 663 852 * 0.001;
+#X msg 816 806 1;
+#X msg 776 806 0.1;
+#X msg 736 806 0.01;
+#X msg 693 807 0.001;
+#X text 713 68 0.01;
+#X text 714 99 0.1;
+#X text 714 130 0.33;
+#X text 714 145 1;
+#X obj 874 195 until;
+#X msg 952 300 0.01;
+#X msg 1075 300 0.25;
+#X msg 1110 300 0.33;
+#X msg 1148 300 1;
+#X msg 864 152 5;
+#X text 626 195 0.001;
+#X text 626 210 0.01;
+#X text 626 226 0.1;
+#X text 626 242 1;
+#X text 647 382 INSERT LINES;
+#X obj 1322 585 tabletool vp\$1;
+#X msg 1322 563 copy vel2pitch-\$1;
+#X obj 1295 432 tabletool vel2pitch-\$1;
+#X obj 1295 357 r vel2pitch-tabletool-\$1;
+#X obj 956 468 s vel2pitch-tabletool-\$1;
+#X obj 1306 379 r vis-clock;
+#X msg 1306 401 change;
+#X msg 1367 462 1;
+#X msg 1295 481 0;
+#X obj 1322 520 spigot 1;
+#X obj 1295 460 t b b;
+#X obj 1322 542 f \$1;
+#X msg 1021 300 0.1;
+#X msg 987 300 0.083;
+#X text 714 84 0.083;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X connect 17 0 21 0;
+#X connect 18 0 20 0;
+#X connect 19 0 25 0;
+#X connect 20 0 22 0;
+#X connect 20 0 32 0;
+#X connect 21 0 20 0;
+#X connect 22 0 28 0;
+#X connect 23 0 24 0;
+#X connect 23 0 32 0;
+#X connect 24 0 29 0;
+#X connect 25 0 23 0;
+#X connect 26 0 23 0;
+#X connect 30 0 36 1;
+#X connect 30 0 39 1;
+#X connect 31 0 39 0;
+#X connect 32 0 31 0;
+#X connect 32 1 30 0;
+#X connect 33 1 37 0;
+#X connect 34 0 38 0;
+#X connect 35 0 36 0;
+#X connect 35 1 34 0;
+#X connect 36 0 33 0;
+#X connect 37 0 105 0;
+#X connect 38 0 33 1;
+#X connect 39 0 34 1;
+#X connect 39 1 35 0;
+#X connect 40 0 56 0;
+#X connect 41 0 56 0;
+#X connect 42 0 56 0;
+#X connect 43 0 56 0;
+#X connect 44 0 56 0;
+#X connect 46 0 45 0;
+#X connect 51 0 150 0;
+#X connect 52 0 40 0;
+#X connect 53 0 42 0;
+#X connect 54 0 43 0;
+#X connect 55 0 44 0;
+#X connect 63 0 160 0;
+#X connect 64 0 66 0;
+#X connect 66 0 146 0;
+#X connect 66 1 169 0;
+#X connect 66 2 168 0;
+#X connect 66 3 147 0;
+#X connect 66 4 148 0;
+#X connect 66 5 149 0;
+#X connect 67 0 71 0;
+#X connect 68 0 72 0;
+#X connect 69 0 136 0;
+#X connect 70 0 86 0;
+#X connect 71 0 136 0;
+#X connect 72 0 140 0;
+#X connect 72 1 139 0;
+#X connect 72 2 138 0;
+#X connect 72 3 137 0;
+#X connect 73 0 69 0;
+#X connect 75 0 78 0;
+#X connect 76 0 79 0;
+#X connect 77 0 122 0;
+#X connect 78 0 122 0;
+#X connect 79 0 115 0;
+#X connect 79 1 116 0;
+#X connect 79 2 117 0;
+#X connect 79 3 118 0;
+#X connect 80 0 77 0;
+#X connect 87 0 88 0;
+#X connect 88 0 107 0;
+#X connect 89 0 86 0;
+#X connect 90 0 98 0;
+#X connect 91 0 97 0;
+#X connect 92 0 93 0;
+#X connect 92 1 95 1;
+#X connect 92 2 96 1;
+#X connect 93 0 94 0;
+#X connect 94 0 95 0;
+#X connect 94 1 96 0;
+#X connect 95 0 99 0;
+#X connect 96 0 99 1;
+#X connect 97 0 92 0;
+#X connect 98 0 93 0;
+#X connect 99 0 100 0;
+#X connect 100 0 160 0;
+#X connect 101 0 103 1;
+#X connect 102 0 89 0;
+#X connect 102 1 104 0;
+#X connect 103 0 102 0;
+#X connect 104 0 86 0;
+#X connect 106 0 27 0;
+#X connect 108 0 123 0;
+#X connect 109 0 124 0;
+#X connect 110 0 128 0;
+#X connect 111 0 126 0;
+#X connect 112 0 114 5;
+#X connect 115 0 122 1;
+#X connect 116 0 122 1;
+#X connect 117 0 122 1;
+#X connect 118 0 122 1;
+#X connect 122 0 103 0;
+#X connect 123 0 114 4;
+#X connect 124 0 114 3;
+#X connect 125 0 114 1;
+#X connect 126 0 125 0;
+#X connect 127 0 114 2;
+#X connect 128 0 127 0;
+#X connect 129 0 114 0;
+#X connect 131 0 132 0;
+#X connect 131 0 135 0;
+#X connect 131 0 133 0;
+#X connect 131 0 134 0;
+#X connect 131 0 15 0;
+#X connect 132 0 108 0;
+#X connect 132 0 90 0;
+#X connect 133 0 111 0;
+#X connect 134 0 110 0;
+#X connect 135 0 109 0;
+#X connect 135 0 91 0;
+#X connect 136 0 70 0;
+#X connect 137 0 136 1;
+#X connect 138 0 136 1;
+#X connect 139 0 136 1;
+#X connect 140 0 136 1;
+#X connect 145 0 41 0;
+#X connect 146 0 63 0;
+#X connect 147 0 63 0;
+#X connect 148 0 63 0;
+#X connect 149 0 63 0;
+#X connect 150 0 145 0;
+#X connect 157 0 156 0;
+#X connect 158 0 166 0;
+#X connect 159 0 158 0;
+#X connect 161 0 162 0;
+#X connect 162 0 158 0;
+#X connect 162 0 163 0;
+#X connect 163 0 165 1;
+#X connect 164 0 165 1;
+#X connect 165 0 167 0;
+#X connect 166 0 164 0;
+#X connect 166 1 165 0;
+#X connect 167 0 157 0;
+#X connect 168 0 63 0;
+#X connect 169 0 63 0;
+#X coords 0 -1 1 1 750 600 2 20 20;

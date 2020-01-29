@@ -1,0 +1,2 @@
+#N canvas 640 315 450 300 10;
+#X obj 172 97 py basslines get_pc;
