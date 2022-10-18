@@ -1,0 +1,156 @@
+#N canvas 550 23 1092 821 10;
+#X declare -lib mrpeach -lib zexy;
+#X obj 108 583 tabplay~;
+#X obj 97 557 t b a;
+#X obj 153 625 s next_char;
+#X obj 153 605 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 116 285 rewind;
+#X obj 24 240 r next_char;
+#X floatatom 68 345 4 0 0 0 - - -;
+#X obj 97 512 makefilename char_%d;
+#X obj 195 265 r usedChars;
+#X obj 282 306 t l;
+#X obj 97 388 t f f;
+#X obj 195 306 list prepend;
+#X obj 97 456 spigot;
+#X obj 195 351 t b a;
+#X obj 175 458 sel 0;
+#X msg 175 479 -1;
+#X obj 103 366 print DONE;
+#X obj 97 323 binfile;
+#X msg 223 380 10 32 120 119 113 112 111 110 116 122 121 115 109 103
+104 105 106 108 102 101 100 99 98 97 114 118 107 117 97 98 99 100 101
+102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118
+119 120 121 122 120 119 113 112 111 110 116 122 121 115 109 103 104
+105 106 108 102 101 100 99 98 97 114 118 107 117;
+#X obj 15 16 cnv 15 460 130 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 20 27 loadbang;
+#X msg 20 50 \; pd dsp 1;
+#X text 96 27 some additional management: we can communicate with the
+pd kernel via messages. This one \, activates pd audio as soon as we
+open the patch;
+#X obj 97 213 openpanel;
+#X obj 97 236 t b b s;
+#X msg 136 261 read \$1;
+#X obj 86 647 cnv 15 300 30 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#X obj 98 652 dac~;
+#X text 134 653 angelfaraldo@gmail.com - 2010 (rev.2012);
+#X obj 90 156 cnv 15 110 30 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 97 168 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 117 167 LOAD & START;
+#X obj 216 154 cnv 15 260 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 217 207 cnv 15 240 25 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 221 237 s space_length;
+#X floatatom 221 214 5 0 0 0 - - -;
+#X floatatom 220 159 5 0 0 0 - - -;
+#X obj 220 183 s row_length;
+#X text 255 159 duration of silence for a line break;
+#X text 260 215 duration of silence for spacebar;
+#X obj 226 507 cnv 15 240 25 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#N canvas 196 23 942 245 database 1;
+#X obj 454 31 * 44.1;
+#X obj 454 8 r space_length;
+#X obj 453 91 table char_32 4410;
+#X obj 574 31 * 44.1;
+#X obj 573 91 table char_10 4410;
+#X obj 574 8 r row_length;
+#X msg 454 54 \; char_32 resize \$1;
+#X msg 574 54 \; char_10 resize \$1;
+#X obj 693 25 loadbang;
+#X obj 693 68 s usedChars;
+#X obj 693 91 table char_-1 20;
+#X msg 693 47 10 32;
+#X obj 146 68 a.char 117;
+#X obj 286 28 a.char 107;
+#X obj 216 68 a.char 118;
+#X obj 356 48 a.char 114;
+#X obj 6 8 a.char 97;
+#X obj 76 8 a.char 98;
+#X obj 146 8 a.char 99;
+#X obj 216 8 a.char 100;
+#X obj 286 8 a.char 101;
+#X obj 356 8 a.char 102;
+#X obj 356 28 a.char 108;
+#X obj 216 28 a.char 106;
+#X obj 146 28 a.char 105;
+#X obj 76 28 a.char 104;
+#X obj 6 28 a.char 103;
+#X obj 6 48 a.char 109;
+#X obj 6 68 a.char 115;
+#X obj 6 88 a.char 121;
+#X obj 76 88 a.char 122;
+#X obj 76 68 a.char 116;
+#X obj 76 48 a.char 110;
+#X obj 146 48 a.char 111;
+#X obj 216 48 a.char 112;
+#X obj 286 48 a.char 113;
+#X obj 286 68 a.char 119;
+#X obj 356 68 a.char 120;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 3 0 7 0;
+#X connect 5 0 3 0;
+#X connect 8 0 11 0;
+#X connect 11 0 9 0;
+#X restore 234 511 pd database;
+#X text 314 513 here are the guts...;
+#X obj 403 323 s database;
+#X obj 403 252 loadbang;
+#X msg 403 273 symbol ./vocalSounds;
+#X msg 413 293 symbol ./songs;
+#X obj 195 286 list-abs/list-unique;
+#X obj 195 328 list prepend set;
+#X obj 97 536 list prepend set;
+#X obj 19 118 declare -lib mrpeach -lib zexy;
+#X obj 65 433 list-abs/list-find;
+#X obj 97 192 ggee/getdir;
+#X connect 0 0 27 0;
+#X connect 0 0 27 1;
+#X connect 0 1 3 0;
+#X connect 1 0 0 0;
+#X connect 1 1 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 17 0;
+#X connect 5 0 17 0;
+#X connect 7 0 49 0;
+#X connect 8 0 47 0;
+#X connect 9 0 11 1;
+#X connect 10 0 12 0;
+#X connect 10 1 51 0;
+#X connect 11 0 9 0;
+#X connect 11 0 48 0;
+#X connect 12 0 7 0;
+#X connect 13 0 18 0;
+#X connect 13 1 18 0;
+#X connect 14 0 15 0;
+#X connect 15 0 7 0;
+#X connect 17 0 6 0;
+#X connect 17 0 10 0;
+#X connect 17 2 16 0;
+#X connect 18 0 51 1;
+#X connect 20 0 21 0;
+#X connect 23 0 24 0;
+#X connect 24 0 17 0;
+#X connect 24 1 4 0;
+#X connect 24 2 25 0;
+#X connect 25 0 17 0;
+#X connect 30 0 52 0;
+#X connect 35 0 34 0;
+#X connect 36 0 37 0;
+#X connect 44 0 45 0;
+#X connect 45 0 43 0;
+#X connect 46 0 43 0;
+#X connect 47 0 11 0;
+#X connect 48 0 13 0;
+#X connect 49 0 1 0;
+#X connect 51 1 12 1;
+#X connect 51 1 14 0;
+#X connect 52 0 23 0;

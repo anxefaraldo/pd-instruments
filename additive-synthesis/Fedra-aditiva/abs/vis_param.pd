@@ -1,0 +1,8 @@
+#N canvas 74 657 555 300 12;
+#X obj 179 102 r \$1;
+#X obj 179 130 route \$2;
+#X obj 10 10 nbx 4 15 -100 200 0 0 - -- empty 0 -8 0 8 #6f4060 #d8d9bf
+#d8d9bf 0 256;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 38 16 2 10 10;

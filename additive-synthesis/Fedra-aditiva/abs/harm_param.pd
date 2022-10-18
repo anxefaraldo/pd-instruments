@@ -1,0 +1,16 @@
+#N canvas 934 707 720 300 12;
+#X obj 10 10 nbx 3 15 0 999 0 0 harm_\$1 kjh empty 0 -8 0 13 #6f4060
+#d8d9bf #d8d9bf 0 256;
+#X obj 199 44 r harm_params;
+#X obj 198 77 list split \$1;
+#X obj 28 181 tabwrite harm_array;
+#X obj 28 154 pack 0 \$1;
+#X obj 225 108 i;
+#X floatatom 221 154 5 0 0 0 - - - 0;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 1 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 0 0;
+#X connect 5 0 6 0;
+#X coords 0 -1 1 1 46 16 2 10 10;

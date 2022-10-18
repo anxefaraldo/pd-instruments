@@ -1,5 +1,5 @@
-#N canvas 325 68 561 98 10;
-#X declare -path abs -lib zexy -lib gspd;
+#N canvas 582 77 561 98 10;
+#X declare -path abs -lib zexy -path gspd;
 #X floatatom 265 56 6 0 1 0 pan: #0-inInitPan #0-outInitPan;
 #X floatatom 37 56 6 0 1e+07 0 samp: #0-inInitSamps #0-outInitSamps
 ;
@@ -22,7 +22,7 @@
 -1 -1 1 1;
 #X obj 412 46 bng 8 250 50 0 \$0-learnMonitor \$0-nothing empty 17
 7 0 10 -228856 -1 -1;
-#N canvas 303 487 657 699 p 1;
+#N canvas 303 487 657 699 p 0;
 #X obj 118 54 samplerate~;
 #X obj 118 94 /;
 #X msg 118 74 1 \$1;
@@ -40,7 +40,7 @@
 #X obj 7 76 expr~ if($v1 > $v2 \, 0 \, 1);
 #X obj 7 6 inlet~;
 #X obj 7 106 outlet~;
-#X obj 154 53 zexy/z~;
+#X obj 154 53 z~;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 1 0 3 0;
@@ -58,7 +58,7 @@
 #X obj 10 222 /~ 2048;
 #X text 65 222 <-- 12 bit resolution (4096/2);
 #X obj 10 170 mirrorWall~ -2048 2047;
-#X obj 271 50 zexy/z~;
+#X obj 271 50 z~;
 #X obj 20 197 pulseVisInt \$0 visAmp;
 #X connect 0 0 1 1;
 #X connect 1 0 3 0;
@@ -85,7 +85,7 @@
 ;
 #X text 23 48 resolucion de 100 pasos (0.01);
 #X obj 202 169 mirrorWall~ 0 1;
-#X obj 309 47 zexy/z~;
+#X obj 309 47 z~;
 #X obj 212 195 pulseVisFloat \$0 visPan;
 #X connect 0 0 1 1;
 #X connect 1 0 7 0;
@@ -111,7 +111,7 @@
 #X obj 145 192 +~ 3;
 #X obj 145 241 s~ \$0-freqloop;
 #X obj 152 116 r \$0-outInitSamps;
-#X obj 276 69 zexy/z~;
+#X obj 276 69 z~;
 #X obj 153 216 pulseVisInt \$0 visSamps;
 #X connect 0 0 1 1;
 #X connect 1 0 3 0;
@@ -149,7 +149,7 @@
 #X obj 50 624 s \$0-inGo;
 #X obj 49 645 r globalMonitor;
 #X obj 49 666 s \$0-inSwitchMetro;
-#X obj 22 206 zexy/z~;
+#X obj 22 206 z~;
 #X obj 430 211 s \$0-inInitAmp;
 #X obj 430 170 random 4098;
 #X obj 430 190 - 2049;
@@ -161,7 +161,7 @@
 1;
 #X obj 336 232 s \$0-inInitSamps;
 #X obj 336 208 random 3000;
-#X obj 334 5 declare -path abs -lib zexy -lib gspd;
+#X obj 334 5 declare -path abs -lib zexy -path gspd;
 #X connect 0 0 2 0;
 #X connect 1 0 3 1;
 #X connect 2 0 1 0;
