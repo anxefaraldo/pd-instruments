@@ -1,5 +1,5 @@
-#N struct 1040-point float x0 float y0 float size float fg float in float grid;
-#N canvas 743 63 1305 987 12;
+#N struct 1092-point float x0 float y0 float size float fg float in float grid;
+#N canvas 60 25 1305 987 12;
 #X declare -path else;
 #X obj 1078 508 metro 10;
 #X obj 1078 534 f 0;
@@ -54,13 +54,13 @@
 #X obj 215 103 vsl 19 147 0 1 0 0 amplitude set-amplitude empty 0 -9 0 12 #404040 #28f4f4 #000000 0 1;
 #X obj 312 11 cnv 19 300 280 empty empty empty 20 12 0 12 #bbbbbb #404040 0;
 #X text 488 45 MANUAL;
-#X obj 465 45 vradio 19 1 0 2 auto-mode-2 set-auto-mode-2 empty 0 -10 0 12 #bcbcbc #bcbcbc #000000 0;
+#X obj 465 45 vradio 19 1 0 2 auto-mode-2 set-auto-mode-2 empty 0 -10 0 12 #404040 #28f4f4 #000000 0;
 #X obj 465 105 vradio 19 1 0 2 random-mode-2 set-random-mode-2 empty 0 -10 0 12 #bcbcbc #bcbcbc #000000 0;
 #X obj 385 101 vradio 19 1 0 8 loudspeaker set-loudspeaker empty 0 -10 0 12 #404040 #28f4f4 #000000 0;
 #X text 488 65 AUTO;
 #X text 491 105 CONTINUOUS;
 #X text 491 125 RANDOM;
-#X obj 465 165 vradio 19 1 0 2 direction-2 set-direction-2 empty 0 -10 0 12 #bcbcbc #bcbcbc #000000 0;
+#X obj 465 165 vradio 19 1 0 2 direction-2 set-direction-2 empty 0 -10 0 12 #404040 #28f4f4 #000000 0;
 #X text 491 165 CLOCKWISE;
 #X obj 250 251 hsl 122 19 -1 1 0 0 spread set-spread empty -2 -8 0 10 #404040 #28f4f4 #000000 0 1;
 #X obj 465 215 vradio 19 1 0 2 interpolation-2 set-interpolation-2 empty 0 -10 0 12 #bcbcbc #bcbcbc #000000 0;
@@ -77,7 +77,7 @@
 #X text 389 121 2;
 #X obj 296 35 tgl 30 0 link set-link empty 0 -10 0 12 #404040 #28f4f4 #000000 0 1;
 #X text 295 17 LINK;
-#X obj 247 101 else/circle 127 -1 1 -1 1 0 75 75 75 150 150 150 0 255 255 1 0 0 -0.476304 0.118181 source_position source 1;
+#X obj 247 101 else/circle 127 -1 1 -1 1 0 75 75 75 150 150 150 0 255 255 1 0 0 0.602723 -0.0379177 source_position source 1;
 #X text 43 186 COUNTERCLOCK;
 #X text 212 256 AMP;
 #X text 382 256 OUT;
