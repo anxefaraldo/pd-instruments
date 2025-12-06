@@ -1,40 +1,28 @@
 #N canvas 246 22 691 679 10;
+#X declare -path abs;
 #X obj 20 286 s fundamental;
 #X obj 19 245 mtof;
-#X obj 20 103 bng 15 250 50 0 empty empty 1-solo-evento 17 7 0 12 -262144
--1 -1;
+#X obj 20 103 bng 15 250 50 0 empty empty 1-solo-evento 17 7 0 12 #fcfcfc #000000 #000000;
 #X obj 363 540 catch~ sumaOsciladores;
 #X obj 336 591 dac~;
-#X obj 347 333 vsl 15 100 0 100 0 0 empty empty vol. 0 -9 0 10 -262144
--1 -1 8000 1;
+#X obj 347 333 vsl 15 100 0 100 0 0 empty empty vol. 0 -9 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 348 480 line~;
 #X obj 348 440 dbtorms;
 #X msg 348 460 \$1 30;
 #X obj 348 561 *~;
-#X obj 246 65 vsl 15 100 0.01 1 0 1 p1g r-p1g 1 0 -9 0 10 -262144 -1
--1 4800 1;
-#X obj 261 65 vsl 15 100 0.01 1 0 1 p2g r-p2g 2 0 -9 0 10 -262144 -1
--1 7600 1;
-#X obj 276 65 vsl 15 100 0.01 1 0 1 p3g r-p3g 3 0 -9 0 10 -262144 -1
--1 3300 1;
-#X obj 291 65 vsl 15 100 0.01 1 0 1 p4g r-p4g 4 0 -9 0 10 -262144 -1
--1 5900 1;
-#X obj 306 65 vsl 15 100 0.01 1 0 1 p5g r-p5g 5 0 -9 0 10 -262144 -1
--1 4900 1;
-#X obj 321 65 vsl 15 100 0.01 1 0 1 p6g r-p6g 6 0 -9 0 10 -262144 -1
--1 900 1;
-#X obj 336 65 vsl 15 100 0.01 1 0 1 p7g r-p7g 7 0 -9 0 10 -262144 -1
--1 7900 1;
-#X obj 351 65 vsl 15 100 0.01 1 0 1 p8g r-p8g 8 0 -9 0 10 -262144 -1
--1 2900 1;
-#X obj 366 65 vsl 15 100 0.01 1 0 1 p9g r-p9g 9 0 -9 0 10 -262144 -1
--1 0 1;
-#X obj 381 65 vsl 15 100 0.01 1 0 1 p10g r-p10g 10 0 -9 0 10 -262144
--1 -1 2900 1;
+#X obj 246 65 vsl 15 100 0.01 1 0 1 p1g r-p1g 1 0 -9 0 10 #fcfcfc #000000 #000000 4800 1;
+#X obj 261 65 vsl 15 100 0.01 1 0 1 p2g r-p2g 2 0 -9 0 10 #fcfcfc #000000 #000000 7600 1;
+#X obj 276 65 vsl 15 100 0.01 1 0 1 p3g r-p3g 3 0 -9 0 10 #fcfcfc #000000 #000000 3300 1;
+#X obj 291 65 vsl 15 100 0.01 1 0 1 p4g r-p4g 4 0 -9 0 10 #fcfcfc #000000 #000000 5900 1;
+#X obj 306 65 vsl 15 100 0.01 1 0 1 p5g r-p5g 5 0 -9 0 10 #fcfcfc #000000 #000000 4900 1;
+#X obj 321 65 vsl 15 100 0.01 1 0 1 p6g r-p6g 6 0 -9 0 10 #fcfcfc #000000 #000000 900 1;
+#X obj 336 65 vsl 15 100 0.01 1 0 1 p7g r-p7g 7 0 -9 0 10 #fcfcfc #000000 #000000 7900 1;
+#X obj 351 65 vsl 15 100 0.01 1 0 1 p8g r-p8g 8 0 -9 0 10 #fcfcfc #000000 #000000 2900 1;
+#X obj 366 65 vsl 15 100 0.01 1 0 1 p9g r-p9g 9 0 -9 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 381 65 vsl 15 100 0.01 1 0 1 p10g r-p10g 10 0 -9 0 10 #fcfcfc #000000 #000000 2900 1;
 #X text 319 176 maximos de cada parcial.;
 #X obj 38 591 s duracion;
-#X obj 402 112 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 402 112 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 403 131 s reordenar;
 #N canvas 0 22 941 138 reordenacionParciales 0;
 #X obj 7 9 r reordenar;
@@ -111,11 +99,9 @@
 #X obj 19 205 + 36;
 #X obj 348 521 *~;
 #X obj 403 93 spigot;
-#X obj 436 73 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 436 73 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X text 455 72 cambiar espectro en cada evento;
-#X obj 21 61 tgl 15 0 empty empty melodia_on/off 0 -9 0 12 -262144
--1 -1 0 1;
+#X obj 21 61 tgl 15 0 empty empty melodia_on/off 0 -9 0 12 #fcfcfc #000000 #000000 0 1;
 #X obj 78 61 r duracion;
 #X obj 19 184 random 24;
 #X obj 38 529 pow;
@@ -124,18 +110,15 @@
 #X obj 38 549 * 1000;
 #X obj 23 424 random 6;
 #X obj 24 446 - 3;
-#X obj 23 405 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 69 366 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 23 405 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 69 366 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
 #X text 87 364 cambiar duracion en cada evento;
-#X floatatom 77 531 5 0 0 1 duracion_base - -;
+#X floatatom 77 531 5 0 0 1 duracion_base - - 0;
 #X obj 25 618 loadbang;
-#X text 96 631 esto es para computar audio automaticamente \, sin tener
-que ir al terminal y pulsar "compute audio";
+#X text 96 631 esto es para computar audio automaticamente \, sin tener que ir al terminal y pulsar "compute audio";
 #X obj 21 82 metro 1000;
-#X floatatom 27 227 5 0 0 1 fundamental_en_MIDI - -;
-#X floatatom 27 267 10 0 0 1 fundamental_en_Hz - -;
+#X floatatom 27 227 5 0 0 1 fundamental_en_MIDI - - 0;
+#X floatatom 27 267 10 0 0 1 fundamental_en_Hz - - 0;
 #N canvas 1 462 284 348 envolvente 0;
 #X obj 115 27 r duracion;
 #X obj 75 50 random;
@@ -174,7 +157,7 @@ que ir al terminal y pulsar "compute audio";
 #X text 519 299 OSCILADORES;
 #X text 306 297 OUTPUT (VOLUMEN);
 #X text 19 25 FUNDAMENTALES/MELODIA;
-#X floatatom 45 572 6 0 0 1 duracion - -;
+#X floatatom 45 572 6 0 0 1 duracion - - 0;
 #X obj 58 143 s trigger1;
 #X obj 38 164 s trigger2;
 #X msg 25 640 \; pd dsp 1;
@@ -183,7 +166,7 @@ que ir al terminal y pulsar "compute audio";
 #X obj 19 123 t b b b;
 #X text 366 21 ESPECTRO/TIMBRE;
 #X text 55 246 NUMEROS MIDI A FRECUENCIAS.;
-#X floatatom 31 468 5 0 0 0 - - -;
+#X floatatom 31 468 5 0 0 0 - - - 0;
 #X obj 474 362 oscilador 5;
 #X obj 564 382 oscilador 8;
 #X obj 474 322 oscilador 1;
@@ -195,6 +178,7 @@ que ir al terminal y pulsar "compute audio";
 #X obj 474 342 oscilador 3;
 #X obj 564 402 oscilador 10;
 #X obj 24 386 spigot 1;
+#X obj 571 646 declare -path abs;
 #X connect 1 0 0 0;
 #X connect 1 0 47 0;
 #X connect 2 0 59 0;
