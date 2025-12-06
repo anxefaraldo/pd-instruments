@@ -1,0 +1,242 @@
+#N canvas 770 63 774 1075 10;
+#X obj 239 775 else/out~;
+#X obj 15 264 else/multi.vsl 600 150 0 100 20 empty volume volume_params
+63 51 84 111 64 97 217 217 192 1 1 0 holder holder 90.6667 68 68 68
+73.3333 70.6667 70.6667 69.3333 73.3333 71.3333 67.3333 68.6667 67.3333
+66.6667 66.6667 65.3333 62.6667 86 65.3333 64;
+#X obj 15 143 else/multi.vsl 600 100 -0.5 0.5 20 empty ratio ratio_params
+63 51 84 111 64 97 217 217 192 1 1 0 holder holder 0 0.03 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X obj 15 435 else/multi.vsl 600 50 -1 1 20 empty pan pan_params 63
+51 84 111 64 97 217 217 192 1 1 0 holder holder 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0;
+#X obj 394 715 r pan;
+#N canvas 121 146 712 787 config 1;
+#X msg 16 16 send volume \, receive volume_params;
+#X obj 32 384 send volume_params;
+#X msg 16 38 send ratio \, receive ratio_params;
+#X msg 16 61 send pan \, receive pan_params;
+#X obj 211 582 send ratio_params;
+#X obj 407 582 send pan_params;
+#X msg 422 558 setall 0;
+#X obj 422 516 loadbang;
+#X obj 222 513 loadbang;
+#X obj 45 304 loadbang;
+#X msg 407 443 n 20 \, dim 600 50 \, range -1 1;
+#X msg 32 277 n 20 \, dim 600 150 \, range 0 100;
+#X obj 279 87 r fundamental;
+#X obj 280 41 mtof;
+#X obj 280 19 r midi_fundamental;
+#X obj 280 63 s set_hz_fundamental;
+#X obj 279 109 ftom;
+#X msg 279 130 set \$1;
+#X obj 279 152 s set_midi_fundamental;
+#X obj 430 536 r reset_pan;
+#X obj 231 535 r reset_ratio;
+#X obj 54 337 r reset_volume;
+#X msg 211 384 n 20 \, dim 600 100 \, range -0.5 0.5;
+#X msg 222 558 setall 0;
+#X msg 45 356 setall 50;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 23 0;
+#X connect 9 0 24 0;
+#X connect 10 0 5 0;
+#X connect 11 0 1 0;
+#X connect 12 0 16 0;
+#X connect 13 0 15 0;
+#X connect 14 0 13 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 19 0 6 0;
+#X connect 20 0 23 0;
+#X connect 21 0 24 0;
+#X connect 22 0 4 0;
+#X connect 23 0 4 0;
+#X connect 24 0 1 0;
+#X restore 553 78 pd config;
+#X obj 283 715 r ratio;
+#X obj 338 715 r volume;
+#X obj 16 12 else/keyboard 17 60 5 0 0 0 set_midi_fundamental nothing
+;
+#X obj 16 96 nbx 6 15 0 127 0 0 midi_fundamental set_midi_fundamental
+MIDI 0 -8 0 14 #fcfcfc #000000 #000000 0 256;
+#X obj 126 96 nbx 7 15 0 24000 0 0 fundamental set_hz_fundamental HZ.
+0 -8 0 14 #fcfcfc #000000 #000000 0 256;
+#X obj 283 738 clone jurado-osc 20;
+#X obj 16 126 nbx 2 15 0 99 0 0 harm_0 set_harm_0 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 46 126 nbx 2 15 0 99 0 0 harm_1 set_harm_1 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 76 126 nbx 2 15 0 99 0 0 harm_2 set_harm_2 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 106 126 nbx 2 15 0 99 0 0 harm_3 set_harm_3 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 136 126 nbx 2 15 0 99 0 0 harm_4 set_harm_4 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 166 126 nbx 2 15 0 99 0 0 harm_5 set_harm_5 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 196 126 nbx 2 15 0 99 0 0 harm_6 set_harm_6 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 226 126 nbx 2 15 0 99 0 0 harm_7 set_harm_7 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 256 126 nbx 2 15 0 99 0 0 harm_8 set_harm_8 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 286 126 nbx 2 15 0 99 0 0 harm_9 set_harm_9 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 316 126 nbx 2 15 0 99 0 0 harm_10 set_harm_10 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 346 126 nbx 2 15 0 99 0 0 harm_11 set_harm_11 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 376 126 nbx 2 15 0 99 0 0 harm_12 set_harm_12 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 406 126 nbx 2 15 0 99 0 0 harm_13 set_harm_13 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 436 126 nbx 2 15 0 99 0 0 harm_14 set_harm_14 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 466 126 nbx 2 15 0 99 0 0 harm_15 set_harm_15 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 496 126 nbx 2 15 0 99 0 0 harm_16 set_harm_16 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 526 126 nbx 2 15 0 99 0 0 harm_17 set_harm_17 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 556 126 nbx 2 15 0 99 0 0 harm_18 set_harm_18 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 586 126 nbx 2 15 0 99 0 0 harm_19 set_harm_19 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 16 246 nbx 2 15 0 99 0 0 empty vis_ratio_0 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 46 246 nbx 2 15 0 99 0 0 harm_1 set_harm_1 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 76 246 nbx 2 15 0 99 0 0 harm_2 set_harm_2 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 106 246 nbx 2 15 0 99 0 0 harm_3 set_harm_3 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 136 246 nbx 2 15 0 99 0 0 harm_4 set_harm_4 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 166 246 nbx 2 15 0 99 0 0 harm_5 set_harm_5 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 196 246 nbx 2 15 0 99 0 0 harm_6 set_harm_6 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 226 246 nbx 2 15 0 99 0 0 harm_7 set_harm_7 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 256 246 nbx 2 15 0 99 0 0 harm_8 set_harm_8 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 286 246 nbx 2 15 0 99 0 0 harm_9 set_harm_9 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 316 246 nbx 2 15 0 99 0 0 harm_10 set_harm_10 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 346 246 nbx 2 15 0 99 0 0 harm_11 set_harm_11 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 376 246 nbx 2 15 0 99 0 0 harm_12 set_harm_12 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 406 246 nbx 2 15 0 99 0 0 harm_13 set_harm_13 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 436 246 nbx 2 15 0 99 0 0 harm_14 set_harm_14 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 466 246 nbx 2 15 0 99 0 0 harm_15 set_harm_15 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 496 246 nbx 2 15 0 99 0 0 harm_16 set_harm_16 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 526 246 nbx 2 15 0 99 0 0 harm_17 set_harm_17 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 556 246 nbx 2 15 0 99 0 0 harm_18 set_harm_18 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 586 246 nbx 2 15 0 99 0 0 harm_19 set_harm_19 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 16 416 nbx 2 15 0 99 0 0 harm_0 set_harm_0 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 46 416 nbx 2 15 0 99 0 0 harm_1 set_harm_1 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 76 416 nbx 2 15 0 99 0 0 harm_2 set_harm_2 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 106 416 nbx 2 15 0 99 0 0 harm_3 set_harm_3 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 136 416 nbx 2 15 0 99 0 0 harm_4 set_harm_4 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 166 416 nbx 2 15 0 99 0 0 harm_5 set_harm_5 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 196 416 nbx 2 15 0 99 0 0 harm_6 set_harm_6 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 226 416 nbx 2 15 0 99 0 0 harm_7 set_harm_7 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 256 416 nbx 2 15 0 99 0 0 harm_8 set_harm_8 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 286 416 nbx 2 15 0 99 0 0 harm_9 set_harm_9 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 316 416 nbx 2 15 0 99 0 0 harm_10 set_harm_10 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 346 416 nbx 2 15 0 99 0 0 harm_11 set_harm_11 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 376 416 nbx 2 15 0 99 0 0 harm_12 set_harm_12 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 406 416 nbx 2 15 0 99 0 0 harm_13 set_harm_13 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 436 416 nbx 2 15 0 99 0 0 harm_14 set_harm_14 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 466 416 nbx 2 15 0 99 0 0 harm_15 set_harm_15 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 496 416 nbx 2 15 0 99 0 0 harm_16 set_harm_16 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 526 416 nbx 2 15 0 99 0 0 harm_17 set_harm_17 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 556 416 nbx 2 15 0 99 0 0 harm_18 set_harm_18 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 586 416 nbx 2 15 0 99 0 0 harm_19 set_harm_19 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 16 488 nbx 2 15 0 99 0 0 harm_0 set_harm_0 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 46 488 nbx 2 15 0 99 0 0 harm_1 set_harm_1 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 76 488 nbx 2 15 0 99 0 0 harm_2 set_harm_2 empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0 256;
+#X obj 106 488 nbx 2 15 0 99 0 0 harm_3 set_harm_3 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 136 488 nbx 2 15 0 99 0 0 harm_4 set_harm_4 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 166 488 nbx 2 15 0 99 0 0 harm_5 set_harm_5 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 196 488 nbx 2 15 0 99 0 0 harm_6 set_harm_6 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 226 488 nbx 2 15 0 99 0 0 harm_7 set_harm_7 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 256 488 nbx 2 15 0 99 0 0 harm_8 set_harm_8 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 286 488 nbx 2 15 0 99 0 0 harm_9 set_harm_9 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 316 488 nbx 2 15 0 99 0 0 harm_10 set_harm_10 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 346 488 nbx 2 15 0 99 0 0 harm_11 set_harm_11 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 376 488 nbx 2 15 0 99 0 0 harm_12 set_harm_12 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 406 488 nbx 2 15 0 99 0 0 harm_13 set_harm_13 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 436 488 nbx 2 15 0 99 0 0 harm_14 set_harm_14 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 466 488 nbx 2 15 0 99 0 0 harm_15 set_harm_15 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 496 488 nbx 2 15 0 99 0 0 harm_16 set_harm_16 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 526 488 nbx 2 15 0 99 0 0 harm_17 set_harm_17 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 556 488 nbx 2 15 0 99 0 0 harm_18 set_harm_18 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 586 488 nbx 2 15 0 99 0 0 harm_19 set_harm_19 empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256;
+#X obj 620 143 bng 15 250 50 0 reset_ratio empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 620 264 bng 15 250 50 0 reset_volume empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 620 436 bng 15 250 50 0 reset_pan empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 558 726;
+#X msg 558 747;
+#X msg 523 679 vis 2 1;
+#X connect 4 0 11 2;
+#X connect 6 0 11 0;
+#X connect 7 0 11 1;
+#X connect 11 0 0 0;
+#X connect 11 0 0 1;
+#X connect 95 0 96 0;
+#X connect 97 0 11 0;
